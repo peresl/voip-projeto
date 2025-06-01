@@ -1,0 +1,14 @@
+# Dockerfile-asterisk
+FROM debian:bullseye
+
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt-get update && apt-get install -y \
+    asterisk \
+    && rm -rf /var/lib/apt/lists/*
+
+COPY etc/asterisk /etc/asterisk
+
+EXPOSE 5060/udp
+CMD ["asterisk", "-f"]
+

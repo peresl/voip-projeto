@@ -1,0 +1,43 @@
+version: "3.8"
+
+services:
+  asterisk:
+    build:
+      context: .
+      dockerfile: Dockerfile-asterisk
+    container_name: asterisk
+    networks:
+      - redeasterisk
+    ports:
+      - "5060:5060/udp"
+    volumes:
+      - ./etc/asterisk:/etc/asterisk
+
+  linphone-pedro:
+    build:
+      context: .
+      dockerfile: Dockerfile-linphone
+    container_name: pedro
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    networks:
+      - redeasterisk
+
+  linphone-maria:
+    build:
+      context: .
+      dockerfile: Dockerfile-linphone
+    container_name: maria
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    networks:
+      - redeasterisk
+
+networks:
+  redeasterisk:
+    driver: bridge
+
