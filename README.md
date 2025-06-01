@@ -14,17 +14,19 @@ Este projeto cria um ambiente de VoIP com Asterisk (PBX) e dois clientes Linphon
 
 ## 🧱 Estrutura do projeto
 
+```text
 voip-projeto/
 ├── docker-compose.yml
 ├── Dockerfile-linphone
 ├── Dockerfile-asterisk
 ├── etc/
-│ └── asterisk/
-│ ├── asterisk.conf
-│ ├── extensions.conf
-│ ├── logger.conf
-│ ├── modules.conf
-│ ├── sip.conf
+│   └── asterisk/
+│       ├── asterisk.conf
+│       ├── extensions.conf
+│       ├── logger.conf
+│       ├── modules.conf
+│       └── sip.conf
+
 
 ## 📦 Build dos containers
 
