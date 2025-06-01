@@ -26,7 +26,7 @@ voip-projeto/
 │       ├── logger.conf
 │       ├── modules.conf
 │       └── sip.conf
-
+```
 
 ## 📦 Build dos containers
 
